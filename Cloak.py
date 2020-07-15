@@ -34,9 +34,9 @@ while(cap.isOpened()):
     mask1 = mask1+mask2
 
     # Now we will use the morphologyEx function to remove the noises from our surroundings
-    mask1 = cv2.morphologyEx(mask1, cv2.MORPH_OPEN, np.ones((3,3), np.uint8), iterations= 2) #Every image is a matrix, so here we are creating a 3*3 matrix
+    mask1 = cv2.morphologyEx(mask1, cv2.MORPH_OPEN, np.ones((3,3), np.uint8), iterations= 10) #Every image is a matrix, so here we are creating a 3*3 matrix
     # Now we will try to increase the smoothness of the image
-    mask1 = cv2.morphologyEx(mask1, cv2.MORPH_DILATE, np.ones((3,3), np.uint8), iterations= 1)
+    mask1 = cv2.morphologyEx(mask1, cv2.MORPH_DILATE, np.ones((3,3), np.uint8), iterations= 10)
 
     mask2 = cv2.bitwise_not(mask1) # So here, everything except the cloak part would be there
     #Here we are using AND b/w the background and mask1
